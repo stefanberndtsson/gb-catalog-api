@@ -1,0 +1,35 @@
+one:
+  id: 1
+  game_id: 1
+  casing: "Clear"
+  code: "DMG-AAAA-EUR"
+  note: "Test Cartridge 1"
+
+two:
+  id: 2
+  game_id: 2
+  casing: "Clear"
+  code: "CGB-BBBB-EUR"
+  note: "Test Cartridge 2"
+
+three:
+  id: 3
+  game_id: 2
+  casing: "Clear"
+  code: "CGB-BBBB-EUR"
+  note: "Test Cartridge 3"
+
+four:
+  id: 4
+  game_id: 3
+  casing: "Grey"
+  code: "DMG-CCCC-EUR"
+  note: "Test Cartridge 4"
+
+five:
+  id: 5
+  game_id: 3
+  casing: "Clear"
+  code: "CGB-DDDD-USA"
+  note: "Test Cartridge 5"
+

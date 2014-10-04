@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004103539) do
+ActiveRecord::Schema.define(version: 20141004115828) do
+
+  create_table "cartridges", force: true do |t|
+    t.integer  "game_id"
+    t.text     "casing"
+    t.text     "code"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "games", force: true do |t|
     t.text     "title"

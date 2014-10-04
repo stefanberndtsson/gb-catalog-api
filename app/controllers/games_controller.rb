@@ -6,10 +6,10 @@ class GamesController < ApplicationController
   
   def show
     @game = Game.find_by_id(params[:id])
-    if @game
-      render json: @game.to_json(root: true)
-    else
+    if @game.nil?
       render json: {}, status: 404
+    else
+      render json: @game.to_json(root: true)
     end
   end
 end
