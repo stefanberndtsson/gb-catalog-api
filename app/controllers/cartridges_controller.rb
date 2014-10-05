@@ -9,8 +9,12 @@ class CartridgesController < ApplicationController
   end
   
   def show
-    game = Game.find_by_id(params[:game_id])
-    @cartridge = game.try(:cartridges).try(:find_by_id, params[:id])
+    if params[:game_id]
+      game = Game.find_by_id(params[:game_id])
+      @cartridge = game.try(:cartridges).try(:find_by_id, params[:id])
+    else
+      @cartridge = Cartridge.find_by_id(params[:id])
+    end
     if @cartridge.nil?
       render json: {}, status: 404
     else
