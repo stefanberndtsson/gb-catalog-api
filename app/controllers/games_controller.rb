@@ -10,8 +10,7 @@ class GamesController < ApplicationController
     pagination[:pages] =  @games.total_pages if @games.respond_to?(:total_pages)
     pagination[:page] = params[:page].to_i if params[:page]
     @games = @games.order(:title)
-    @cartridges = @games.all.flat_map {|x| x.cartridges }
-    render json: {games: @games, cartridges: @cartridges, meta: { pagination: pagination }}
+    render json: {games: @games, meta: { pagination: pagination }}
   end
   
   def show

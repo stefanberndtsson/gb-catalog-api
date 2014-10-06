@@ -22,23 +22,15 @@ RSpec.describe GamesController, :type => :controller do
       expect(json['meta']['pagination']['page']).to be(1)
     end
 
-    it "should include only cartridges belonging to games on requested page" do
-      get :index, per_page: 2, page: 1
-      expect(json['games'].count).to be(2)
-      expect(json['cartridges']).to be_kind_of(Array)
-      expect(json['cartridges'].count).to be(4)
-    end
-
     it "should include cartridge ids on game objects when fetching lists" do
       get :index
       expect(json['games'][0]['cartridges']).to be_kind_of(Array)
       expect(json['games'][0]['cartridges'].count).to be(2)
     end
   
-    it "should include cartridge list when fetching lists" do
+    it "should not include cartridge list when fetching lists" do
       get :index
-      expect(json['cartridges']).to be_kind_of(Array)
-      expect(json['cartridges'].count).to be(Cartridge.count)
+      expect(json['cartridges']).to be_falsey
     end
     
     it "should return list ordered by title" do
