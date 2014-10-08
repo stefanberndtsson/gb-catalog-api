@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  def index
+  def index(root_name = :games)
     if params[:page] || params[:per_page]
       @games = Game.paginate(page: params[:page], per_page: params[:per_page])
     else
@@ -10,7 +10,11 @@ class GamesController < ApplicationController
     pagination[:pages] =  @games.total_pages if @games.respond_to?(:total_pages)
     pagination[:page] = params[:page].to_i if params[:page]
     @games = @games.order(:title)
-    render json: {games: @games, meta: { pagination: pagination }}
+    render json: {root_name => @games, meta: { pagination: pagination }}
+  end
+
+  def game_lists
+    index(:game_lists)
   end
   
   def show
