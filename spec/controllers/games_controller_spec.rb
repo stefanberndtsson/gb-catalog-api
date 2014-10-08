@@ -39,7 +39,7 @@ RSpec.describe GamesController, :type => :controller do
     end
     
     it "should accept game_lists as request point for list with appropriate json structure" do
-      get :game_lists
+      get :list
       expect(json['game_lists'].first['title']).to eq('Test title 1')
     end
   end

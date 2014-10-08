@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'game_lists' => 'games#game_lists'
+  get 'game_lists' => 'games#list'
   resources :games do
     resources :cartridges
   end

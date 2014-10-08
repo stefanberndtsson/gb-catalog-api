@@ -13,7 +13,7 @@ class GamesController < ApplicationController
     render json: {root_name => @games, meta: { pagination: pagination }}
   end
 
-  def game_lists
+  def list
     index(:game_lists)
   end
   
